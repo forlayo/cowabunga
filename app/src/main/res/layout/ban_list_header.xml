@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+
+        <variable name="vm" type="com.forlayo.cowabunga.viewmodels.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/options_container"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            layout="@layout/ban_list_header_title"
+            bind:title="@{@string/settings_options}" />
+        <include
+            layout="@layout/ban_list_header_row"
+            bind:icon="@{`list_bulleted`}"
+            bind:title="@{@string/settings_recent_notifications_title}"
+            bind:body="@{@string/settings_recent_notifications_body}"
+            bind:checkable="@{vm.recentNotifications}" />
+        <include
+            layout="@layout/ban_list_header_row"
+            bind:icon="@{`power`}"
+            bind:title="@{@string/settings_energy_saving_title}"
+            bind:body="@{@string/settings_energy_saving_body}"
+            bind:checkable="@{vm.energySave}" />
+        <include
+            layout="@layout/ban_list_header_row"
+            android:visibility="@{vm.showRemoveAds ? View.VISIBLE : View.GONE}"
+            bind:vm="@{vm}"
+            bind:icon="@{`ad_remove`}"
+            bind:title="@{@string/settings_remove_ads_title}"
+            bind:body="@{null == vm.adFreeCost ? @string/settings_remove_ads_body_no_price : @string/settings_remove_ads_body(vm.adFreeCost)}"
+            bind:checkable="@{null}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
+        <include
+            layout="@layout/ban_list_header_title"
+            bind:title="@{@string/settings_apps_enabled}" />
+    </LinearLayout>
+</layout>

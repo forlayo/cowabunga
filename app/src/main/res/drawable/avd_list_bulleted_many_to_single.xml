@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:drawable="@drawable/ic_list_bulleted_many"
+    tools:targetApi="lollipop">
+
+    <target android:name="elem2">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:interpolator="@android:anim/decelerate_interpolator"
+                android:duration="@integer/avd_anim_time"
+                android:propertyName="translateY"
+                android:valueFrom="0"
+                android:valueTo="-6" />
+        </aapt:attr>
+    </target>
+
+    <target android:name="elem3">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:interpolator="@android:anim/decelerate_interpolator"
+                android:duration="@integer/avd_anim_time"
+                android:propertyName="translateY"
+                android:valueFrom="0"
+                android:valueTo="-12" />
+        </aapt:attr>
+    </target>
+</animated-vector>

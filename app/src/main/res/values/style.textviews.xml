@@ -1,0 +1,30 @@
+<resources>
+    <style name="AppTheme.text">
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="AppTheme.text.app_row" />
+
+    <style name="AppTheme.text.app_options" />
+    <style name="AppTheme.text.app_options.header"/>
+    <style name="AppTheme.text.app_options.title">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="AppTheme.text.app_options.body">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AppTheme.text.faq">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+    <style name="AppTheme.text.faq.title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+    <style name="AppTheme.text.faq.body">
+        <item name="android:textSize">14sp</item>
+        <item name="android:autoLink">web</item>
+    </style>
+</resources>

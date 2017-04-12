@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="app" type="com.forlayo.cowabunga.viewmodels.PInfoViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <ImageView
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@{app.icon}"
+            tools:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            style="@style/AppTheme.text.app_row"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:text="Nombre de app."
+            android:text="@{app.name}" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:checked="@={app.enabled}"/>
+    </LinearLayout>
+</layout>

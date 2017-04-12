@@ -1,0 +1,130 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.getkeepsafe.dexcount'
+apply plugin: 'com.github.ben-manes.versions'
+
+def supportVersion        = '25.3.1'
+def daggerVersion         = '2.10'
+def bindingAdapterVersion = '2.0.1'
+
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+    dependencies {
+        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.6.3'
+        classpath 'me.tatarka:gradle-retrolambda:3.6.0'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
+    }
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    dataBinding {
+        enabled true
+    }
+
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+
+        applicationId "com.forlayo.cowabunga"
+        minSdkVersion 10
+        targetSdkVersion 25
+        versionCode 15
+        versionName "2.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('../keystore.jks')
+            storePassword 'REMOVED!!'
+            keyAlias 'cowabunga'
+            keyPassword 'REMOVED!!'
+        }
+        release {
+            storeFile file('../keystore.jks')
+            storePassword 'REMOVED!!'
+            keyAlias 'cowabunga'
+            keyPassword 'REMOVED!!'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    /* Test */
+    testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:2.7.20"
+    androidTestCompile 'com.github.fabioCollini:DaggerMock:0.6.4'
+    androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
+    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
+    androidTestCompile('com.android.support.test.espresso:espresso-intents:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    /* Support */
+    compile "com.android.support:support-annotations:${supportVersion}"
+    compile "com.android.support:appcompat-v7:${supportVersion}"
+    compile "com.android.support:cardview-v7:${supportVersion}"
+    compile "com.android.support:design:${supportVersion}"
+
+    /* Views */
+    compile "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:${bindingAdapterVersion}"
+    compile "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:${bindingAdapterVersion}"
+
+    /* Ads */
+    compile 'com.google.android.gms:play-services-ads:10.2.1'
+    compile 'com.facebook.android:audience-network-sdk:4.21.0'
+    compile 'com.google.firebase:firebase-core:10.2.1'
+
+    /* RxJava */
+    compile 'io.reactivex.rxjava2:rxjava:2.0.8'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    /* Dagger2 */
+    compile "com.google.dagger:dagger:${daggerVersion}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
+    provided 'javax.annotation:jsr250-api:1.0'
+}
+/*
+ * Workaround for https://code.google.com/p/android/issues/detail?id=182715
+ *
+ * The Android Gradle plugin is creating DataBindingExportBuildInfoTasks for the instrumentation
+ * APK that generates from the app APKs layouts. This creates duplicate classes in the app and
+ * instrumentation APK which leads to
+ *      java.lang.IllegalAccessError: Class ref in pre-verified class resolved to unexpected implementation
+ * on older devices.
+ *
+ * The workaround is to get the DataBindingExportBuildInfoTasks tasks for the instrumentation APK
+ * and delete the files right after it creates them.
+ */
+tasks.withType(com.android.build.gradle.internal.tasks.databinding.DataBindingExportBuildInfoTask) { task ->
+    if (task.name.endsWith("AndroidTest")) {
+        task.finalizedBy(tasks.create("${task.name}Workaround") << {
+            task.output.deleteDir()
+        })
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'

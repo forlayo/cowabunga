@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facebook_banner_placement_id" translatable="false">REMOVED!!</string>
+    <string name="admob_banner_adunit_id" translatable="false">REMOVED!!</string>
+
+    <string-array name="facebook_test_devices" translatable="false">
+        <item>REMOVED!!</item>
+    </string-array>
+
+    <string-array name="admob_test_devices" translatable="false">
+        <item>REMOVED!!</item>
+    </string-array>
+</resources>

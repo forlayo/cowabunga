@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_main_status"
+        android:checkable="true"
+        android:title="@string/main_menu_disabled"
+        app:actionViewClass="android.support.v7.widget.SwitchCompat"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_main_alert"
+        android:title="@string/main_menu_disabled"
+        android:icon="@drawable/avd_alert"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_main_remove_ads"
+        android:title="@string/main_menu_remove_ads"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_main_faq"
+        android:title="@string/main_menu_faq"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_main_share"
+        android:title="@string/main_menu_share"
+        app:showAsAction="never" />
+</menu>

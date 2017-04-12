@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string translatable="false" name="preferences_file">Cowabunga_preferences</string>
+    <string translatable="false" name="banned_packages">banned_packages</string>
+    <string translatable="false" name="notification_list">notification_list</string>
+    <string translatable="false" name="energy_saving">energy_saving</string>
+    <string translatable="false" name="installed_version">installed_version</string>
+    <string translatable="false" name="config_contact_url">https://play.google.com/store/apps/details?id=com.forlayo.cowabunga</string>
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cowabunga</string>
+
+    <!-- Share intent -->
+    <string name="share_title_popup">Comparte cowabunga!</string>
+    <string name="share_subject">Hey! Estoy usando Cowabunga notifications y mola cantidubi</string>
+    <string name="share_text">Estoy usando Cowabunga notifications, una aplicación nueva que genera notificaciones ricas cuando la pantalla esta bloqueada.\n\n Tienes que probarla! Mola cantidubi: https://play.google.com/store/apps/details?id=com.forlayo.cowabunga</string>
+
+    <!-- Main menu -->
+    <string name="main_menu_disabled">Deshabilitado</string>
+    <string name="main_menu_remove_ads">Quitar publicidad</string>
+    <string name="main_menu_faq">F.A.Q.</string>
+    <string name="main_menu_share">Comparte esta aplicación</string>
+
+    <!-- Accessibility dialog -->
+    <string name="dialog_accessibility_title">Activa Cowabunga</string>
+    <string name="dialog_accessibility_message">Para que Cowabunga Notificaciones funcione necesitas activar nuestro servicio de accesibilidad. Haz clic en el botón y actívalo, ¡es muy sencillo!</string>
+    <string name="dialog_accessibility_button">Activar Cowabunga</string>
+
+    <!-- App list header with settings -->
+    <string name="settings_options">Opciones</string>
+    <string name="settings_recent_notifications_title">Notificaciones recientes</string>
+    <string name="settings_recent_notifications_body">Resumen bajo la actual</string>
+    <string name="settings_energy_saving_title">Ahorro de energía</string>
+    <string name="settings_energy_saving_body">Mínimo brillo en las notificaciones</string>
+    <string name="settings_remove_ads_title">Quitar publicidad</string>
+    <string name="settings_remove_ads_body">Por %s quita el anuncio de abajo</string>
+    <string name="settings_remove_ads_body_no_price">Quita el anuncio de abajo</string>
+    <string name="settings_apps_enabled">Apps habilitadas para notificaciones</string>
+
+    <!-- FAQ -->
+    <string name="faq_title">FAQ</string>
+    <string name="faq_card_1_title">¿Por qué la app utiliza un "Servicio de Accesibilidad"?</string>
+    <string name="faq_card_1_body">Porque estamos mostrando información de otras aplicaciones en nuestra notificación; es un truco ;)</string>
+    <string name="faq_card_2_title">Android dice que la app puede recoger información sensible de mi teléfono</string>
+    <string name="faq_card_2_body">Android avisa de esto porque la app utiliza un servicio de accesibilidad, como por ejemplo cuando se dicta el texto para gente invidente. Estás totalmente a salvo pues la aplicación no envía ningún dato y usa esto exclusivamente para generar tus notificaciones.
+
+No obstante, como muestra de seguridad, la app es opensource y puedes comprobar tu mismo lo que hace mirando su código fuente en esta dirección:
+https://github.com/forlayo/cowabunga</string>
+    <string name="faq_card_3_title">¿Tienes mas dudas? ¿Una petición especial?</string>
+    <string name="faq_card_3_body">Estaré encantado de atenderte si realizas algún comentario directamente en la app o me contactas a través del correo del desarrollador.</string>
+    <string name="faq_contact">Contacta</string>
+</resources>

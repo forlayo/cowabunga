@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="vm" type="com.forlayo.cowabunga.viewmodels.FAQViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.design.widget.CoordinatorLayout
+        android:fitsSystemWindows="true"
+        android:background="@color/colorBackground"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v4.widget.NestedScrollView
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_margin="16dp"
+                android:paddingBottom="24dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    layout="@layout/faq_item"
+                    bind:title="@{@string/faq_card_1_title}"
+                    bind:body="@{@string/faq_card_1_body}"/>
+
+                <include
+                    layout="@layout/faq_item"
+                    bind:title="@{@string/faq_card_2_title}"
+                    bind:body="@{@string/faq_card_2_body}"/>
+
+                <include
+                    layout="@layout/faq_item"
+                    bind:title="@{@string/faq_card_3_title}"
+                    bind:body="@{@string/faq_card_3_body}"/>
+
+                <Button
+                    style="@style/AppTheme.button.contact"
+                    android:onClick="@{() -> vm.contact()}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/faq_contact"/>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:minHeight="?attr/actionBarSize"
+                android:background="?attr/colorPrimaryDark"
+                app:title="@string/faq_title"
+                app:layout_scrollFlags="scroll|enterAlways" />
+        </android.support.design.widget.AppBarLayout>
+    </android.support.design.widget.CoordinatorLayout>
+
+    <LinearLayout
+        android:id="@+id/ad_container"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        bind:layout_height="50dp"
+        bind:background="#fff"/>
+    </LinearLayout>
+</layout>

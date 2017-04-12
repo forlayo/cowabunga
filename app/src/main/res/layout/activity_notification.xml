@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@android:color/black"
+            android:id="@+id/root_view"
+            android:gravity="center_vertical">
+
+
+            <LinearLayout
+                android:id="@+id/notification_container"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:layout_marginTop="30dp">
+                <ImageView
+                    android:id="@+id/notification_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:src="@mipmap/ic_launcher"/>
+                <TextView
+                    android:id="@+id/notification_appname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Appname"
+                    android:gravity="center" android:textColor="@android:color/primary_text_dark" android:textSize="22sp"/>
+                <TextView
+                    android:id="@+id/notification_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello World, Main"
+                    android:gravity="center" android:textColor="@android:color/secondary_text_dark"
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+
+            <fragment
+                android:id="@+id/list"
+                android:name="com.forlayo.cowabunga.fragments.notification.NotificationsListFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:tag="com.forlayo.cowabunga.fragments.notification.NotificationsListFragment" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ad_container"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_height="50dp"
+            tools:background="#fff"/>
+    </LinearLayout>
+</layout>
